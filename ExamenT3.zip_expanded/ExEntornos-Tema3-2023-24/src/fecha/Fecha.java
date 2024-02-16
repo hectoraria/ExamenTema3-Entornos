@@ -1,16 +1,37 @@
 package fecha;
-
+/**
+ * En esta clase llamada Fecha tenemos varias variables privadas
+ * declaradas 
+ * 
+ * @author hectoraias
+ */
 public class Fecha {
-	private int d; //día
+	/**
+	 * Variable int declarada para el dia
+	 */
+	private int d; //dï¿½a
+	/**
+	 * Variable int declarada para el mes
+	 */
 	private int m; //mes
-	private int a; //año
+	/**
+	 * Variable int declarada para el aÃ±o
+	 */
+	private int a; //aï¿½o
 
-	
+	/**
+	 * Constructor sin parametros
+	 */
 	public Fecha() {
 
 	}
 
-	
+	/**
+	 * Constructor con parÃ¡metros
+	 * @param dia Este parÃ¡metro es el dia
+	 * @param mes Este parÃ¡metro es el mes
+	 * @param anio Este parÃ¡metro es el anio
+	 */
 	public Fecha(int dia, int mes, int anio) {
 		this.d = dia;
 		this.m = mes;
@@ -18,7 +39,10 @@ public class Fecha {
 	}
 
 	
-	
+	/**
+	 * Este metodo te calcula si la fecha es correcta
+	 * @return devolvera un true/false dependiendo del resulta
+	 */
 	public boolean fechaCorrecta() {
 		boolean diaCorrecto, mesCorrecto, anioCorrecto;
 		anioCorrecto = a > 0;
@@ -42,14 +66,19 @@ public class Fecha {
 		}
 		return diaCorrecto && mesCorrecto && anioCorrecto;
 	}
-
-	// Método esBisiesto. Solo lo usa fechaCorrecta, por eso es privado
+	/**
+	 * Metodo para calcular si es anio bisiesto, solo usa la fecha correcta
+	 * @return envia un boolean es decir true/false dependiendo del resultado
+	 */
+	// Mï¿½todo esBisiesto. Solo lo usa fechaCorrecta, por eso es privado
 	private boolean esBisiesto() {
 		boolean esBisiesto = (a % 4 == 0 && a % 100 != 0 || a % 400 == 0);
 		return esBisiesto;
 	}
-
-	// Método diaSiguiente
+	/**
+	 * Metodo para calcular el dia siguiente de la fechaCorrecta 
+	 */
+	// Mï¿½todo diaSiguiente
 	public void diaSiguiente() {
 		d++;
 		if (!fechaCorrecta()) {
@@ -61,8 +90,10 @@ public class Fecha {
 			}
 		}
 	}
-
-	// Método toString
+	/**
+	 * En este metodo  es para enviar el mensaje del dia mes y anio
+	 * @return dependiendo de la fecha manda un orden del mensaje difrente
+	 */
 	public String toString() {
 		if (d < 10 && m < 10) {
 			return "0" + d + "-0" + m + "-" + a;
